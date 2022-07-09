@@ -2,20 +2,39 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script type="text/javascript" src="/jqueryex/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./assets/js/jquery/jquery-1.12.4.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	<ul>
 		<li id="first" class="red">첫번째 아이템입니다.</li>
 		<li id="second" class="blue"><strong>두번째 아이템입니다.</strong></li>
 		<li id="third" class="del">세번째아이템입니다.</li>
 		<li><strong>네번째 아이템입니다.</strong></li>
-		
+
 	</ul>
-	<input id="btn" type="button" VALUE="li요소추가" />
+	<button id="btn" type="button">li 요소 추가</button>
+
 </body>
+<script type="text/javascript">
+	//ppt15
+	//버튼 클릭했을 때
+	$("#btn").on("click", function() {
+		console.log("버튼클릭");
 
-
+		//text, html 다 넣어보기
+		$("ul").append("<li>다섯번째 아이템입니다.</li>");
+		$("ul").append("<li>여섯번째 아이템입니다.</li>");
+		$("ul").append("<li>일곱번째 아이템입니다.</li>");
+		
+	});
+	
+	//li태그를 클릭했을 때 부모한테 클릭 이벤트를 주고 자식에게 위임
+	$("ul").on("click", "li", function(){
+		$this = $(this);
+		var str = $this.text();
+		console.log(str);
+	});
+</script>
 </html>
